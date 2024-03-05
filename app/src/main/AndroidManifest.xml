@@ -19,9 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ALFODA"
         tools:targetApi="31">
-        <meta-data
-            android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode" />
+        <activity
+            android:name=".Result_page"
+            android:exported="false" />
         <activity
             android:name=".scan_page"
             android:exported="false" />
@@ -37,6 +37,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CaptureAct"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme" />
     </application>
 
 </manifest>
