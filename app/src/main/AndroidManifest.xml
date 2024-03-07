@@ -22,9 +22,7 @@
         <activity
             android:name=".Result_page"
             android:exported="false" />
-        <activity
-            android:name=".scan_page"
-            android:exported="false" />
+
         <activity
             android:name=".Search_page"
             android:exported="false" />

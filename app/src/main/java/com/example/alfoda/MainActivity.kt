@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.journeyapps.barcodescanner.ScanContract
@@ -48,19 +49,21 @@ class MainActivity : AppCompatActivity() {
                 setMessage(result.getContents())
                 setPositiveButton("OK") { dialog, which ->
                     dialog.dismiss()
-                    //OpenResultPage(result.getContents())
+                    OpenResultPage(result.getContents())
                 }
             }.show()
         }
     }
 
- /*   private fun OpenResultPage(r:String) {
-        val page =Result_page()
-        page.result_text=r.toString()
+   private fun OpenResultPage(r:String) {
+
         val r_page=Intent(this,Result_page::class.java)
+        val bundle=Bundle()
+       bundle.putString("barcode",r)
+       r_page.putExtras(bundle)
         startActivity(r_page)
     }
-*/
+
 
 }
 
