@@ -1,4 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ALFODA</string>
-    <string name="welcome">Welcome to </string>
+    <string name="app_name" translatable="false">ALFODA</string>
+    <string name="weclome">Welcome to </string>
+    <string name="scan">Scan</string>
+    <string name="search">Search</string>
+    <string name="or">OR</string>
+    <string name="select_language">Select Language</string>
+    <string name="barcode_result">Barcode Result</string>
+    <string name="enter_barcode">Enter Barcode or product name</string>
+    <string name="back">Return</string>
+    <string name="here">Enter here</string>
 </resources>

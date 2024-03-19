@@ -23,7 +23,7 @@
         android:layout_width="284dp"
         android:layout_height="85dp"
         android:layout_marginTop="104dp"
-        android:text="Barcode Result"
+        android:text="@string/barcode_result"
         android:textSize="40dp"
         android:textColor="#286A4E"
         android:fontFamily="sans-serif-black"

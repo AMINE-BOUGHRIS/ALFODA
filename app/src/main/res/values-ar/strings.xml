@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weclome">مرحبا بك في  </string>
+    <string name="scan">فحص </string>
+    <string name="search">بحث</string>
+    <string name="or">أو</string>
+    <string name="select_language">إختر اللغة</string>
+    <string name="barcode_result">نتيجة الفحص </string>
+    <string name="enter_barcode">ادخل كود بار أو اسم المنتج </string>
+    <string name="back">رجوع</string>
+    <string name="here">ادخل هنا </string>
+</resources>
