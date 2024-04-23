@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "788468697786",
+    "project_id": "alfoda-a38fd",
+    "storage_bucket": "alfoda-a38fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788468697786:android:e9c7cd2e56021b90b05083",
+        "android_client_info": {
+          "package_name": "com.example.alfoda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbMVbNqCs8EUO0MhCZswdMDHdA41Dkqkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

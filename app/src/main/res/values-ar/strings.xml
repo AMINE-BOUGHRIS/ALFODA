@@ -6,7 +6,18 @@
     <string name="or">أو</string>
     <string name="select_language">إختر اللغة</string>
     <string name="barcode_result">نتيجة الفحص </string>
-    <string name="enter_barcode">ادخل كود بار أو اسم المنتج </string>
+    <string name="enter_barcode">"ادخل كود بار المنتج "</string>
     <string name="back">رجوع</string>
-    <string name="here">ادخل هنا </string>
+    <string name="here">ادخل هنا  </string>
+    <string name="about_us">"معلومات عنا "</string>
+    <string name="contact_us">"اتصل بنا "</string>
+    <string name="connection">لا يتوفر اتصال بالإنترنت</string>
+    <string name="safe">منتج آمن</string>
+    <string name="low">خطر ضعيف</string>
+    <string name="medium">"خطرمتوسط "</string>
+    <string name="high">"خطر عالي "</string>
+    <string name="flach">اضغط على زر رفع مستوى الصوت لتشغيل الفلاش</string>
+    <string name="enter">"إملء الخانة من فضلك "</string>
+    <string name="exit">إضغط مجددا للخروج</string>
+
 </resources>

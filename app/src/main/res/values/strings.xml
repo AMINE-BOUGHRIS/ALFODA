@@ -7,7 +7,17 @@
     <string name="or">OR</string>
     <string name="select_language">Select Language</string>
     <string name="barcode_result">Barcode Result</string>
-    <string name="enter_barcode">Enter Barcode or product name</string>
+    <string name="enter_barcode">Enter Barcode of product</string>
     <string name="back">Return</string>
     <string name="here">Enter here</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="connection">No internet connection available</string>
+    <string name="safe">Safe product</string>
+    <string name="low">Low risk</string>
+    <string name="medium">Medium risk</string>
+    <string name="high">High risk</string>
+    <string name="flach">Press Volume up to turn flash on</string>
+    <string name="enter">Please enter the barcode</string>
+    <string name="exit">Press back again to exit</string>
 </resources>

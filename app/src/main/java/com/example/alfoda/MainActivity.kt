@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.ConnectivityManager
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
+import android.os.Handler
+import android.util.Log
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.journeyapps.barcodescanner.ScanContract
@@ -16,46 +18,66 @@ import java.util.Locale
 
 
 class MainActivity : AppCompatActivity() {
-
+    private var backPressedOnce = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        loadLocate()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // Load the saved language on app launch
 
         //scan button
-        val close = findViewById<Button>(R.id.scan)
-        close.setOnClickListener(View.OnClickListener {
-            ScanCode()
-        })
+        val scanbtn = findViewById<ImageButton>(R.id.scanbtn)
+        scanbtn.setOnClickListener {
+            if (isNetworkAvailable()) {
+                ScanCode()
+            } else {
+                Toast.makeText(this, R.string.connection, Toast.LENGTH_SHORT).show()
+            }
+        }
         //search button
-        val search=findViewById<Button>(R.id.search)
-        search.setOnClickListener{
+        val searchbtn=findViewById<ImageButton>(R.id.searchbtn)
+        searchbtn.setOnClickListener{
+            if(isNetworkAvailable()){
             val search =Intent(this,Search_page::class.java)
             startActivity(search)
+            }else{
+                Toast.makeText(this, R.string.connection, Toast.LENGTH_SHORT).show()
+            }
         }
         //language button
-        val language =findViewById<ImageButton>(R.id.language)
+        val language =findViewById<ImageButton>(R.id.languagebtn)
 
         language.setOnClickListener{
             showChangeLang()
         }
     }
 
+
     override fun onBackPressed() {
-        super.onBackPressed() // Handle back button press if needed
-        finish() // Finish the current activity
-        startActivity(Intent(this, MainActivity::class.java)) // Restart the activity
+        if (backPressedOnce) {
+            super.onBackPressed()
+            finishAffinity()
+            return
+        }
+        this.backPressedOnce = true
+        Toast.makeText(this, R.string.exit, Toast.LENGTH_SHORT).show()
+        Handler().postDelayed({ backPressedOnce = false }, 2000) // Reset flag after 2 seconds
     }
 
 
-
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnectedOrConnecting
+    }
 
 
     private fun ScanCode() {
         val options = ScanOptions().apply {
-            setPrompt("Volume up to flash on")
+            setPrompt(getString(R.string.flach))
             setBeepEnabled(true)
             setOrientationLocked(true)
-            setCaptureActivity(CaptureAct::class.java)
+            captureActivity = CaptureAct::class.java
 
         // Use class reference for Kotlin
         }
@@ -65,15 +87,8 @@ class MainActivity : AppCompatActivity() {
     private val barcodeLauncher = registerForActivityResult(
         ScanContract()
     ) { result ->
-        if (result.getContents() != null) {
-            AlertDialog.Builder(this).apply {
-                setTitle("Result")
-                setMessage(result.getContents())
-                setPositiveButton("OK") { dialog, which ->
-                    dialog.dismiss()
-                    OpenResultPage(result.getContents())
-                }
-            }.show()
+        if (result.contents != null) {
+            OpenResultPage(result.contents)
         }
     }
 
@@ -81,10 +96,13 @@ class MainActivity : AppCompatActivity() {
 
         val r_page=Intent(this,Result_page::class.java)
         val bundle=Bundle()
-       bundle.putString("barcode",r)
-       r_page.putExtras(bundle)
+        bundle.putString("barcode",r)
+        r_page.putExtras(bundle)
         startActivity(r_page)
     }
+
+
+
     private fun showChangeLang() {
 
         val listItmes = arrayOf("عربي", "English")
@@ -95,7 +113,7 @@ class MainActivity : AppCompatActivity() {
             if (which == 0) {
                 setLocate("ar")
                 recreate()
-            } else{
+            } else if (which == 1) {
                 setLocate("en")
                 recreate()
             }
@@ -108,29 +126,29 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setLocate(Lang: String) {
-
-        val locale = Locale(Lang)
-
+    private fun setLocate(lang: String) {
+        val locale = Locale(lang)
         Locale.setDefault(locale)
-
         val config = Configuration()
-
         config.locale = locale
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
-
         val editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
-        editor.putString("My_Lang", Lang)
+        editor.putString("My_Lang", lang)
         editor.apply()
     }
 
     private fun loadLocate() {
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
         val language = sharedPreferences.getString("My_Lang", "")
-        setLocate(language.toString())
+        Log.d("Language", "Loaded language: $language")
+        if (!language.isNullOrEmpty()) {
+            setLocate(language)
+        }
     }
 
 
+
 }
+
 
 
