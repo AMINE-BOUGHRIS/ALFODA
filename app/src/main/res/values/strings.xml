@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">ALFODA</string>
-    <string name="weclome">Welcome to </string>
     <string name="scan">Scan</string>
     <string name="search">Search</string>
     <string name="or">OR</string>
@@ -20,4 +19,16 @@
     <string name="flach">Press Volume up to turn flash on</string>
     <string name="enter">Please enter the barcode</string>
     <string name="exit">Press back again to exit</string>
+    <string name="guide">Your guide to choosing healthy food that suits your needs.</string>
+    <string name="next">Next</string>
+    <string name="productinfo">Product Information</string>
+    <string name="welcome">Welcome to ALFODA</string>
+    <string name="personalized">Your personalized guide to healthy eating!</string>
+    <string name="definition">We\'re excited to help you make informed choices about the food you put on your plate. With ALFODA, you can easily scan barcodes or search for food items to understand their ingredients, potential allergens, and how they fit your dietary needs.</string>
+    <string name="started">Get Started</string>
+    <string name="product_name">Product name:</string>
+    <string name="producer_name">The producer :</string>
+    <string name="category">From category :</string>
+    <string name="component">The components :</string>
+    <string name="additive">The additives :</string>
 </resources>

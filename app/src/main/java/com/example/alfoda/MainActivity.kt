@@ -20,10 +20,12 @@ import java.util.Locale
 class MainActivity : AppCompatActivity() {
     private var backPressedOnce = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Load the saved language on app launch
         loadLocate()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // Load the saved language on app launch
+        isTheFirstTime()
+
 
         //scan button
         val scanbtn = findViewById<ImageButton>(R.id.scanbtn)
@@ -143,6 +145,20 @@ class MainActivity : AppCompatActivity() {
         Log.d("Language", "Loaded language: $language")
         if (!language.isNullOrEmpty()) {
             setLocate(language)
+        }
+    }
+    fun isTheFirstTime(){
+        val settings = getSharedPreferences("MyPrefsFile", 0)
+
+        if (settings.getBoolean("my_first_time", true)) {
+            //the app is being launched for first time, do something
+            Log.d("Comments", "First time")
+
+            val intent=Intent(this,First_Page::class.java)
+            startActivity(intent)
+
+            // record the fact that the app has been started at least once
+            settings.edit().putBoolean("my_first_time", false).commit()
         }
     }
 

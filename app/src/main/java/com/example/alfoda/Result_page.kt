@@ -12,6 +12,7 @@ import com.google.android.gms.tasks.Tasks
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.firestore
+import java.io.Serializable
 
 class Result_page : AppCompatActivity() {
     interface DangerCallback {
@@ -26,6 +27,7 @@ class Result_page : AppCompatActivity() {
         val text=findViewById<TextView>(R.id.status)
         val color: android.view.View? = findViewById(R.id.colorCircle)
         val homebtn=findViewById<Button>(R.id.home)
+        val productinfo =findViewById<Button>(R.id.productinfo)
         val bundle=intent.extras
         val result_text= bundle?.getString("barcode")
         val productname=findViewById<TextView>(R.id.productname)
@@ -40,7 +42,7 @@ class Result_page : AppCompatActivity() {
         val product_Component: List<DocumentReference> = emptyList(),
         val product_Additives: List<DocumentReference> = emptyList(),
         val producer_Category: DocumentReference?=null,
-            ){
+            ) {
             constructor() : this(
                 product_Barcode = "",
                 product_Name = "",
@@ -65,10 +67,18 @@ class Result_page : AppCompatActivity() {
                 additive_Risks= emptyList()
             )
         }
+        productinfo.setOnClickListener{
+                val r_page=Intent(this,Product_Information::class.java)
+                val bundle=Bundle()
+                bundle.putString("barcode",result_text)
+                r_page.putExtras(bundle)
+                startActivity(r_page)
+            }
 
 
 
-       //calcule danger fonction
+
+        //calcule danger fonction
 
 
         fun calculateDanger(products: Products, callback: DangerCallback) {
@@ -111,6 +121,7 @@ class Result_page : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.d("Firestore", "Retrieved document data: $task")
                 val document = task.result?.toObjects(Products::class.java)?.firstOrNull()
+
                 if (document != null) {
                     setproductdetail(document)
                     calculateDanger(document, object : DangerCallback {
@@ -148,6 +159,9 @@ class Result_page : AppCompatActivity() {
         }
 
 
+
     }
+
+
 }
 

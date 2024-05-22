@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="weclome">مرحبا بك في  </string>
     <string name="scan">فحص </string>
     <string name="search">بحث</string>
     <string name="or">أو</string>
@@ -14,10 +13,22 @@
     <string name="connection">لا يتوفر اتصال بالإنترنت</string>
     <string name="safe">منتج آمن</string>
     <string name="low">خطر ضعيف</string>
-    <string name="medium">"خطرمتوسط "</string>
+    <string name="medium">"خطر متوسط "</string>
     <string name="high">"خطر عالي "</string>
     <string name="flach">اضغط على زر رفع مستوى الصوت لتشغيل الفلاش</string>
     <string name="enter">"إملء الخانة من فضلك "</string>
     <string name="exit">إضغط مجددا للخروج</string>
+    <string name="guide">دليلك لاختيار الغذاء الصحي الذي يناسب احتياجاتك.</string>
+    <string name="next">التالي</string>
+    <string name="productinfo">"معلومات المنتج "</string>
+    <string name="welcome">مرحبا بك في ALFODA</string>
+    <string name="personalized">دليلك الشخصي للأكل الصحي!</string>
+    <string name="definition">نحن متحمسون لمساعدتك في اتخاذ خيارات مستنيرة بشأن الطعام الذي تضعه على طبقك. مع ALFODA، يمكنك بسهولة مسح الباركود أو البحث عن المواد الغذائية لفهم مكوناتها والمواد المسببة للحساسية المحتملة ومدى ملاءمتها لاحتياجاتك الغذائية.</string>
+    <string name="started">البدء</string>
+    <string name="product_name">إسم المنتج :</string>
+    <string name="producer_name">المنتِج :</string>
+    <string name="category">من فئة :</string>
+    <string name="component">المكونات :</string>
+    <string name="additive">المواد المضافة :</string>
 
 </resources>

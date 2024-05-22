@@ -58,13 +58,27 @@
 
         <Button
             android:id="@+id/home"
-            android:layout_width="254dp"
-            android:layout_height="72dp"
+            android:layout_width="136dp"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="120dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="117dp"
             android:backgroundTint="@color/green"
             android:text="Home"
+            android:textColor="@color/bege"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/productinfo"
+            android:layout_width="169dp"
+            android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="117dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/productinfo"
             android:textColor="@color/bege"
             android:textSize="20dp" />
 
